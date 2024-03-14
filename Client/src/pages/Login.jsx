@@ -33,6 +33,7 @@ export default function Login() {
 
       if (response.ok) {
         const userData = await response.json();
+        localStorage.setItem('token', userData.token);
         dispatch(login(userData));
         navigate('/', { state: { signInSuccess: true } });
       } else {
